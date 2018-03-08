@@ -1,0 +1,106 @@
+\documentclass{ximera}
+
+\title{Javahhh}
+
+\begin{document}
+\begin{abstract}
+  Testing.
+\end{abstract}
+\maketitle
+\begin{problem}
+  No, really, my favorite number is $y = \answer[format=integer,id=y]{17}$.
+
+  \begin{feedback}[attempt]
+    You made a first attempt!
+  \end{feedback}
+
+  \begin{feedback}[y>17]
+    That number is TOO BIG.
+  \end{feedback}
+
+  \begin{feedback}[y<17]
+    That number is too small.
+  \end{feedback}
+
+  \begin{feedback}[correct]
+    I have always loved the number 17.
+  \end{feedback}
+\end{problem}
+
+
+
+\begin{javascript}
+  function isPositive(number) {
+    return number > 0;
+  };
+
+  function sameParity(a,b) {
+    return (a-b)%2 == 0;
+  };
+
+  caseInsensitive = function(a,b) {
+    return a.toLowerCase() == b.toLowerCase();
+  };
+
+  sameDerivative = function(a,b) {
+    return a.derivative('x').equals( b.derivative('x') );
+  };
+
+  slowOdd = function(a) {
+    return new Promise( function(resolve, reject) {
+      if (a == 0)
+        reject('I do not like zero.');
+      else
+        setTimeout(function(){
+          resolve(a % 2 == 1);
+        }, 1000);      
+    });
+  };  
+\end{javascript}
+
+\begin{problem}
+  Pick an odd integer like $\answer[format=integer,validator=slowOdd]{11}$.
+\end{problem}
+
+\begin{problem}
+  Pick an integer larger than 10, like $\answer[id=big,format=integer,validator=this>10]{11}$.  A bigger integer is \js{big+1}.
+
+  Pick $\answer[format=integer,validator=isPositive]{17} > 0$.
+
+  Find a solution to $\answer[id=odd,format=integer,validator=sameParity]{5} \equiv 5 \bmod 2$.  In that case, $\js{odd} - 5 = \js{odd-5} \equiv 0 \bmod 2$.
+
+  String equality is like $\mbox{Word} = \answer[format=string]{Word}$, but if you wanted to see a case-insensitive comparison try $\mbox{Word} = \answer[format=string,validator=caseInsensitive]{Word}$.
+
+  Find a function $f(x) = \answer[validator=sameDerivative]{x^2}$ so that $f'(x) = \frac{d}{dx} x^2$.
+\end{problem}
+
+\begin{problem}
+  Pick an integer $\answer[id=x,format=integer,validator=true]{17}$.
+
+  Then solve $\js{x} + 1$ equals $\answer[format=integer,validator=this==x+1]{18}$.
+\end{problem}
+
+\begin{problem}
+  Find two integers which sum to twenty five.
+
+  \begin{validator}[a+b==25]
+    $\answer[format=integer,id=a]{16} + \answer[format=integer,id=b]{9} = 25$.
+  \end{validator}
+
+
+  Find a traceless matrix with integer entries.
+  \begin{validator}[a11+a22==0]
+    \[
+      \begin{bmatrix}
+        \answer[format=integer,id=a11]{0} &         \answer[format=integer,id=a12]{0} \\
+        \answer[format=integer,id=a21]{0} &         \answer[format=integer,id=a22]{0} \\
+      \end{bmatrix}
+      \]
+  \end{validator}
+
+\end{problem}
+
+
+
+
+\end{document}
