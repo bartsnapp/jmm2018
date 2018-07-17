@@ -37,3 +37,4 @@
 *.sagetex.sout
 *.sagetex.scmd
 #*
+*.sh
