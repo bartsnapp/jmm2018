@@ -645,9 +645,16 @@ math content, and other information freely available at pcc.edu/orcca.}}
 
 
 %%%%% INDEX STUFF
+\ifweb
+\newcommand{\dfn}{\textbf}
+\else
 \newcommand{\dfn}[1]{\textbf{#1}\index{#1}}
+\fi
+\ifweb
+\else
 \usepackage{imakeidx}
 \makeindex[intoc]
 \makeatletter
 \gdef\ttl@savemark{\sectionmark{}}
 \makeatother
+\fi
