@@ -42,44 +42,44 @@ Let's look at the relationship between the number of chicken nuggets
 you can buy in a single container at a local fast food store and the
 price for that container of nuggets.
 
-%% $$
-%%  \begin{array}{||c c||} 
-%%  \hline
-%%  \text{Number of Nuggets} & \text{Price} \\[0.5ex] 
-%%  \hline\hline
-%%  4 & 1.99\\ 
-%%  \hline
-%%  6 & 2.99 \\
-%%  \hline
-%%  10 & 4.49\\
-%%  \hline
-%%  20 & 5.00 \\
-%%  \hline
-%%  40 & 8.99\\[1ex] 
-%%  \hline
-%% \end{array}
-%% $$
+$$
+ \begin{array}{||c c||} 
+ \hline
+ \text{Number of Nuggets} & \text{Price} \\[0.5ex] 
+ \hline\hline
+ 4 & 1.99\\ 
+ \hline
+ 6 & 2.99 \\
+ \hline
+ 10 & 4.49\\
+ \hline
+ 20 & 5.00 \\
+ \hline
+ 40 & 8.99\\[1ex] 
+ \hline
+\end{array}
+$$
 \begin{explanation}
 This table defines a relation because we can list these as the points %$(4,1.99)$, $(6,2.99)$, $(10,4.49)$, $(20,5.00)$, and $(40, 8.99)$.  We say that 4 nuggets is related to \$1.99 and 40 nuggets is related to \$8.99.  We can also represent this relationship using a graph.
-%% \begin{image}
-%% \begin{tikzpicture}
-%%     \begin{axis}[xlabel={nuggets},
-%%                     ylabel={cost (in dollars)},
-%%                     xmin=-1,xmax=45,
-%%                     ymin=-1,ymax=10,
-%%                     xtick={5,10,...,45},
-%%                     minor xtick={5,10,...,45},
-%%                     ytick={1,2,...,9},
-%%                     minor ytick={1,2,...,9},
-%%                     ]
-%%         \addplot[soliddot] coordinates {(4, 1.99)} node[below] {$(4,1.99)$};
-%%         \addplot[soliddot] coordinates {(6, 2.99)} node[above] {$(6,2.99)$};
-%%         \addplot[soliddot] coordinates {(10, 4.49)} node[right] {$(10,4.49)$};
-%%         \addplot[soliddot] coordinates {(20, 5)} node[above] {$(20,5.00)$};
-%%         \addplot[soliddot] coordinates {(40, 8.99)} node[above] {$(40,8.99)$};
-%%     \end{axis}
-%% \end{tikzpicture}
-%% \end{image}
+\begin{image}
+\begin{tikzpicture}
+    \begin{axis}[xlabel={nuggets},
+                    ylabel={cost (in dollars)},
+                    xmin=-1,xmax=45,
+                    ymin=-1,ymax=10,
+                    xtick={5,10,...,45},
+                    minor xtick={5,10,...,45},
+                    ytick={1,2,...,9},
+                    minor ytick={1,2,...,9},
+                    ]
+        \addplot[soliddot] coordinates {(4, 1.99)} node[below] {$(4,1.99)$};
+        \addplot[soliddot] coordinates {(6, 2.99)} node[above] {$(6,2.99)$};
+        \addplot[soliddot] coordinates {(10, 4.49)} node[right] {$(10,4.49)$};
+        \addplot[soliddot] coordinates {(20, 5)} node[above] {$(20,5.00)$};
+        \addplot[soliddot] coordinates {(40, 8.99)} node[above] {$(40,8.99)$};
+    \end{axis}
+\end{tikzpicture}
+\end{image}
 %% We could ask many mathematical questions about this relation.  For example, ``What's the cheapest way to buy 100 nuggets?"  But for now, its enough to know it is a relation and to know you can represent that relation using multiple representations such as a table, a list, or a graph.
   \end{explanation}
 \end{example}
