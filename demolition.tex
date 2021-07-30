@@ -1,19 +1,32 @@
-\documentclass[web]{xourse}  
+\documentclass[numbers]{xourse}
 
 \input{PCamble.tex}
 
+%% \let\origdocument=\document
+%% \def\document{\origdocument\input{test.xoc}}
+
+%\AtBeginEnvironment{document}{\input{\jobname.xoc}}
+
+
+% see https://tex.stackexchange.com/questions/291235/modifying-an-existing-environment-but-keeping-the-name
 
 
 
 \title{Demolition}  
+%\let\origdocument=\document
+%\def\document{\origdocument\input{\jobname.xoc}}
 
-\begin{document}  
+\begin{document}
+%%%%%\input{\jobname.xoc}
+
 \begin{abstract} %% This describes your course  
   This is a Ximera activity for testing Ximera.
-\end{abstract}  
-\maketitle  
-%% Here we have a listing of the activities.
+\end{abstract}
+\maketitle
+\activity{xc}
+\chapterstyle
 \activity{xa}
+\sectionstyle
 \activity{xb}
 \activity{xc}
 \end{document}
