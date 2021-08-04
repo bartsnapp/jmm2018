@@ -1,6 +1,8 @@
-\documentclass[numbers]{xourse}
+\documentclass{ximera}
 
-\input{PCamble.tex}
+%\input{PCamble.tex}
+
+\newcommand{\ddx}{\frac{d}{dx}}
 
 %% \let\origdocument=\document
 %% \def\document{\origdocument\input{test.xoc}}
@@ -23,10 +25,16 @@
   This is a Ximera activity for testing Ximera.
 \end{abstract}
 \maketitle
-\activity{xc}
-\chapterstyle
-\activity{xa}
-\sectionstyle
-\activity{xb}
-\activity{xc}
+
+\begin{align*}
+\ddx f(x)g(x) &= f(x)g'(x) + f'(x)g(x)\\
+&=(x^2+1)(\answer[given]{3x^2-3}) + (\answer[given]{2x})(x^3-3x).
+\end{align*}
+
+%% \activity{xc}
+%% \chapterstyle
+%% \activity{xa}
+%% \sectionstyle
+%% \activity{xb}
+%% \activity{xc}
 \end{document}
