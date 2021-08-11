@@ -1,0 +1,145 @@
+%\documentclass[handout]{ximera}
+\documentclass[web]{ximera}
+
+\makeatletter
+\pdfsetrandomseed 1
+\newcommand{\randomcolor}{%
+  \definecolor{randomcolor}{RGB}
+   {
+    \pdfuniformdeviate 256,
+    \pdfuniformdeviate 256,
+    \pdfuniformdeviate 256
+   }%
+  \color{randomcolor}%
+}
+\let\old@rule\@rule
+\def\@rule[#1]#2#3{\randomcolor\old@rule[#1]{#2}{#3}\color{black}}
+
+
+
+%% FIX CHOICE
+
+
+
+%% \newcommand{\@wordChoiceStackup}[1]{
+%% \let\@maxWd\relax
+%% \newlength\@maxWd% with a new tmp length
+%% \setlength{\@maxWd}{0em}%
+%% \renewcommand{\choice}[2][]{%
+%% \setkeys{choice}{correct=false}%
+%% \setkeys{choice}{##1}%  
+%% \let\@choiceWd\relax% we'll get the length of the entrie
+%% \newlength\@choiceWd% with a new tmp length
+%% \settowidth{\@choiceWd}{\mbox{##2}}%
+%% \setlength{\@maxWd}{\maxof{\@maxWd}{\@choiceWd}}%
+%% \ifthenelse{\boolean{\choice@correct}}
+%% {% correct
+%% \special{ximera:rule:open wordchoice correct}%
+%% ##2\hspace{-\@choiceWd}%
+%% \special{ximera:rule:close wordchoice correct}%
+%% }%
+%% {% incorrect
+%% \special{ximera:rule:open wordchoice incorrect}%
+%% ##2\hspace{-\@choiceWd}%
+%% \special{ximera:rule:close wordchoice incorrect}%
+%% }% 
+%% }% end of redefintion of choice
+%% \mbox{#1~\hspace{\@maxWd}}}
+
+
+%% \renewcommand{\wordChoice}[1]{%
+%% \let\@choicetemp\choice% Assign a "choicetemp" command to duplicate choice.
+%% \ifweb%
+%% \special{ximera:begin wordchoice}%
+%% \let\@maxWd\relax% we'll get the length of the entrie
+%% \newlength\@maxWd% with a new tmp length
+%% \setlength{\@maxWd}{\widthof{\@wordChoiceStackup{#1}}}%
+%% \rule[-0.75em]{\@maxWd}{2.5em}\hspace{-\@maxWd}\@wordChoiceStackup{#1}%
+%% \special{ximera:end wordchoice}%
+%% \else
+%% \ifwordchoicegiven% If wordchoice option is on, we need to juggle around some definitions.
+%% \let\choice\otherchoice% just prints the correct choice
+%% #1
+%% \else% If not given, we display all answers
+%% \let\choice\inlinechoice%
+%% (#1)\ignorespaces
+%% \fi%for \ifwordchoicegiven
+%% \fi%for \ifweb
+%% \let\choice\@choicetemp% Now that we are done with 
+%% }% our modified \choice, we return it to its orginal def
+
+
+
+
+
+
+%% \renewcommand{\inlinechoice}[2][]{%
+%% \setkeys{choice}{#1}%
+%% \iffirstinlinechoice
+%% %(\hspace{-.25em}
+%% \firstinlinechoicefalse
+%% \else
+%% /
+%% \fi
+%% #2
+%% \ifthenelse{\boolean{\choice@correct}}%
+%% {% Start then result
+%% \ifhandout\else\checkmark\ignorespaces\setkeys{choice}{correct=false}\ignorespaces\fi%
+%% }% End then result
+%% {}%nothing to show as not correct
+%% \hspace{-.25em}\ignorespaces%
+%% }
+
+\makeatother
+
+
+\title{Choice test}
+\author{Bart Snapp}
+\begin{document}
+\begin{abstract}
+  Testing choice and environments that use choice.
+\end{abstract}
+\maketitle
+
+
+What right, \wordChoice{\choice{not me}\choice[correct]{I'm right}\choice{$x^n$}\choice{not me}}
+
+%\@wordChoiceStackup{\choice{not me}\choice[correct]{I'm right}\choice{$x^n$}\choice{not me}} 
+
+%\newlength\testln
+%\settowidth\testln{\fbox{\@wordChoiceStackup{\choice{not me}\choice[correct]{I'm right}\choice{$x^n$}\choice{not me}}}}
+%\the\testln%
+
+
+\begin{multipleChoice}
+    \choice{It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+}
+    \choice{Wrong!}
+    \choice[correct]{Check this out
+    \[
+    \int_a^b f(x) \, d x
+    \]}
+    \choice{Pick somebody else} 
+\end{multipleChoice}
+
+
+
+
+\begin{selectAll}
+    \choice{It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+}
+    \choice{Wrong!}
+    \choice[correct]{Check this out
+    \[
+    \int_a^b f(x) \, d x
+    \]}
+    \choice{Pick somebody else}
+    \choice{Also wrong\dots}
+    \choice[correct]{I'm am an approved choice.}
+    \choice{Don't pick me.}
+\end{selectAll}
+
+\vfill*
+
+\end{document}
+

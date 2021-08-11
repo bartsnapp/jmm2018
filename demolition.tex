@@ -1,9 +1,19 @@
-\documentclass{ximera}
-
+\documentclass[web]{ximera}
+\makeatletter
+\pdfsetrandomseed 1
+\newcommand{\randomcolor}{%
+  \definecolor{randomcolor}{RGB}
+   {
+    \pdfuniformdeviate 256,
+    \pdfuniformdeviate 256,
+    \pdfuniformdeviate 256
+   }%
+  \color{randomcolor}%
+}
+\let\old@rule\@rule
+\def\@rule[#1]#2#3{\randomcolor\old@rule[#1]{#2}{#3}\color{black}}
+\makeatother
 %\input{PCamble.tex}
-
-\newcommand{\ddx}{\frac{d}{dx}}
-
 %% \let\origdocument=\document
 %% \def\document{\origdocument\input{test.xoc}}
 
@@ -19,17 +29,20 @@
 %\def\document{\origdocument\input{\jobname.xoc}}
 
 \begin{document}
-%%%%%\input{\jobname.xoc}
-
 \begin{abstract} %% This describes your course  
   This is a Ximera activity for testing Ximera.
 \end{abstract}
 \maketitle
 
+
+$\answer[given]{4^x}$
+
+\[
+\answer[given]{4}
+\]
 \begin{align*}
-\ddx f(x)g(x) &= f(x)g'(x) + f'(x)g(x)\\
-%%&=(x^2+1)(\answer[given]{3x^2-3}) + (\answer[given]{2x})(x^3-3x).
-&=(x^2+1)(\answer{3x^2-3}) + (\answer{2x})(x^3-3x).
+&= 3\\
+&=(x^2+1)(\answer{x^2}) %+ (\answer{x_1}).
 \end{align*}
 
 %% \activity{xc}
